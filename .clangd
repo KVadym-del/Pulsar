@@ -1,0 +1,4 @@
+CompileFlags:
+  CompilationDatabase: build/clang-gnu
+# CompileFlags:
+#   CompilationDatabase: build/clang-cl

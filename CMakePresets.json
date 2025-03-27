@@ -1,0 +1,51 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "clang-gnu",
+      "description": "Clang with GNU ABI for Windows",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/clang-gnu",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_C_FLAGS": "--target=x86_64-pc-windows-gnu",
+        "CMAKE_CXX_FLAGS": "--target=x86_64-pc-windows-gnu",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES"
+      }
+    },
+    {
+      "name": "clang-cl",
+      "description": "Clang-cl with MSVC ABI for Windows",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/clang-cl",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang-cl",
+        "CMAKE_CXX_COMPILER": "clang-cl",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "clang-gnu",
+      "configurePreset": "clang-gnu"
+    },
+    {
+      "name": "clang-cl",
+      "configurePreset": "clang-cl"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "clang-gnu",
+      "configurePreset": "clang-gnu"
+    },
+    {
+      "name": "clang-cl",
+      "configurePreset": "clang-cl"
+    }
+  ]
+}
